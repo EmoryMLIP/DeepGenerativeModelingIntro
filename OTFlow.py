@@ -34,20 +34,20 @@ class OTFlow(nn.Module):
         self.alph = alph
 
 
-    def g(self, z, nt = None):
+    def g(self, z, nt = None, storeAll=False):
         """
         :param z: latent variable
         :return: g(z) and hidden states
         """
-        return self.integrate(z,[self.T, 0.0], nt)
+        return self.integrate(z,[self.T, 0.0], nt,storeAll)
 
-    def ginv(self, x, nt=None):
+    def ginv(self, x, nt=None, storeAll=False):
         """
         :param x: sample from dataset
         :return: g^(-1)(x), value of log-determinant, and hidden layers
         """
 
-        return self.integrate(x,[0.0, self.T], nt)
+        return self.integrate(x,[0.0, self.T], nt,storeAll)
 
     def log_prob(self, x, nt=None):
         """
@@ -93,7 +93,7 @@ class OTFlow(nn.Module):
 
         return dx, dl, dv, dr
 
-    def integrate(self, y, tspan, nt=None):
+    def integrate(self, y, tspan, nt=None,storeAll=False):
         """
         RK4 time-stepping to integrate the neural ODE
 
@@ -112,7 +112,11 @@ class OTFlow(nn.Module):
         l = torch.zeros((nex), device=y.device, dtype=y.dtype)
         v = torch.zeros((nex), device=y.device, dtype=y.dtype)
         r = torch.zeros((nex), device=y.device, dtype=y.dtype)
-        ys = [torch.clone(y).detach()]
+        if storeAll:
+            ys = [torch.clone(y).detach().cpu()]
+        else:
+            ys = None
+
         for i in range(nt):
             y0 = y
 
@@ -140,7 +144,8 @@ class OTFlow(nn.Module):
             v += h * (1.0 / 6.0) * dv
             r += h * (1.0 / 6.0) * dr
 
-            ys.append(torch.clone(y).detach())
+            if storeAll:
+                ys.append(torch.clone(y).detach().cpu())
             tk +=h
 
         return y, ys, l, v, r
