@@ -106,7 +106,7 @@ class OTFlow(nn.Module):
             nt = self.nt
 
         nex, d = y.shape
-        h =  (tspan[1] - tspan[0])/ nt
+        h = (tspan[1] - tspan[0])/ nt
         tk = tspan[0]
 
         l = torch.zeros((nex), device=y.device, dtype=y.dtype)
@@ -117,32 +117,33 @@ class OTFlow(nn.Module):
         else:
             ys = None
 
+        w =  [(h/6.0),2.0*(h/6.0),2.0*(h/6.0),1.0*(h/6.0)]
         for i in range(nt):
             y0 = y
 
             dy, dl, dv, dr = self.f(y0, tk)
-            y = y0 + h * (1.0 / 6.0) * dy
-            l += h * (1.0 / 6.0) * dl
-            v += h * (1.0 / 6.0) * dv
-            r += h * (1.0 / 6.0) * dr
+            y = y0 + w[0] * dy
+            l += w[0] * dl
+            v += w[0] * dv
+            r += w[0] * dr
 
             dy, dl, dv, dr =  self.f(y0 + 0.5 * h * dy, tk + (h / 2))
-            y += h * (2.0 / 6.0) * dy
-            l += h * (2.0 / 6.0) * dl
-            v += h * (2.0 / 6.0) * dv
-            r += h * (2.0 / 6.0) * dr
+            y += w[1] * dy
+            l += w[1] * dl
+            v += w[1] * dv
+            r += w[1] * dr
 
             dy, dl, dv, dr = self.f(y0 + 0.5 * h * dy, tk + (h / 2))
-            y += h * (2.0 / 6.0) * dy
-            l += h * (2.0 / 6.0) * dl
-            v += h * (2.0 / 6.0) * dv
-            r += h *(2.0 / 6.0) * dr
+            y += w[2] * dy
+            l += w[2] * dl
+            v += w[2] * dv
+            r += w[2] * dr
 
             dy, dl, dv, dr = self.f(y0 + h * dy, tk + h)
-            y += h * (1.0 / 6.0) * dy
-            l += h * (1.0 / 6.0) * dl
-            v += h * (1.0 / 6.0) * dv
-            r += h * (1.0 / 6.0) * dr
+            y += w[3] * dy
+            l += w[3] * dl
+            v += w[3] * dv
+            r += w[3] * dr
 
             if storeAll:
                 ys.append(torch.clone(y).detach().cpu())

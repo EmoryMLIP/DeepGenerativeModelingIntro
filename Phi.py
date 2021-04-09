@@ -186,7 +186,8 @@ class Phi(nn.Module):
             temp = N.layers[i].forward(u[i-1]).t() # (K_i * u_{i-1} + b_i)
             t_i = torch.sum(  ( derivTanh(temp) * term ).reshape(m,-1,nex)  *  torch.pow(KJ,2) ,  dim=(0, 1) )
             trH  = trH + N.h * t_i  # add t_i to the accumulate trace
-            Jac = Jac + N.h * torch.tanh(temp).reshape(m, -1, nex) * KJ # update Jacobian
+            if i < N.nTh:
+                Jac = Jac + N.h * torch.tanh(temp).reshape(m, -1, nex) * KJ # update Jacobian
 
         return grad.t(), trH + torch.trace(symA[0:d,0:d])
         # indexed version of: return grad.t() ,  trH + torch.trace( torch.mm( E.t() , torch.mm(  symA , E) ) )
