@@ -19,12 +19,12 @@ To reproduce the examples from the paper (up to randomization), we provide a she
 
 The `examples` directory contains interactive version of the examples from the paper. Those can be run locally or using 
 Google Colab. For the latter option, you may click the badges below:
-
-1.   [Two-Dimensional Normalizing Flow Examples with Real NVP](https://github.com/github/EmoryMLIP/DeepGenerativeModelingIntro/examples/RealNVP.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/RealNVP.ipynb)  
-1.   [Two-Dimensional Continuous Normalizing Flow Example with OT-Flow](https://github.com/github/EmoryMLIP/DeepGenerativeModelingIntro/examples/RealNVP.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/OTFlow.ipynb)  
-1.   [Variational Autoencoder for MNIST Image Generation](https://github.com/github/EmoryMLIP/DeepGenerativeModelingIntro/examples/RealNVP.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/VAE.ipynb)  
-1.   [DCGAN for MNIST Image Generation](https://github.com/github/EmoryMLIP/DeepGenerativeModelingIntro/examples/RealNVP.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/DCGAN.ipynb)  
-1.   [WGAN  for MNIST Image Generation](https://github.com/github/EmoryMLIP/DeepGenerativeModelingIntro/examples/RealNVP.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/WGAN.ipynb)  
+ 
+1.   [Two-Dimensional Normalizing Flow Examples with Real NVP](https://github.com/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/RealNVP.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/RealNVP.ipynb)  
+1.   [Two-Dimensional Continuous Normalizing Flow Example with OT-Flow](https://github.com/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/OTFlow.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/OTFlow.ipynb)  
+1.   [Variational Autoencoder for MNIST Image Generation](https://github.com/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/VAE.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/VAE.ipynb)  
+1.   [DCGAN for MNIST Image Generation](https://github.com/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/DCGAN.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/DCGAN.ipynb)  
+1.   [WGAN  for MNIST Image Generation](https://github.com/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/WGAN.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/EmoryMLIP/DeepGenerativeModelingIntro/blob/main/examples/WGAN.ipynb)  
  
 ## Dependencies
 
